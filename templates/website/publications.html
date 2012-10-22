@@ -1,0 +1,84 @@
+{% extends "website/base_fudepan.html" %}
+
+{% block content %}
+<div class="section-publications">
+    <div class="page-wrapper">
+        <div class="column" id="content">
+            <div class="section">
+                <h1 class="title">Publicaciones</h1>
+                <div id="content-area">
+                    <div class="views_view view view-publications view-id-publications view-display-id-page_1 view-dom-id-1">
+                        <div class="view-content">
+                            <table class="views-table cols-5">
+                                <thead>
+                                    <tr>
+                                        <th class="views-field views-field-field-publication-target-year-value active">
+                                        Año
+                                        </th>
+                                        <th class="views-field views-field-title">
+                                            Título        
+                                        </th>
+                                        <th class="views-field views-field-field-publication-author-nid">
+                                            Autor        
+                                        </th>
+                                        <th class="views-field views-field-field-publication-target-nid">
+                                            Objetivo de la publicación        
+                                        </th>
+                                        <th class="views-field views-field-field-publication-project-nid">
+                                            Proyecto Relacionado        
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in publications %}
+                                    <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                        <td class="views-field views-field-field-publication-target-year-value active">
+                                            <span class="date-display-single">{{ p.date|date:"Y"}}</span>          
+                                        </td>
+                                        <td class="views-field views-field-title">
+                                            <a href="{% url publication p.id %}">
+                                                <h4>{{ p.title }}</h4>
+                                            </a>          
+                                        </td>
+                                        <td class="views-field views-field-field-publication-author-nid">
+                                            <div class="field-item field-item-1">
+                                                <span>{{p.authors_line}}</span>
+                                            </div>          
+                                        </td>
+                                        <td class="views-field views-field-field-publication-target-nid">
+                                            <span>{{ p.target.description }}</span>
+                                        </td>
+                                        <td class="views-field views-field-field-publication-project-nid">
+                                            {% if p.project %}
+                                            <a href="{% url project p.project.normalized_name %}">{{ p.project.name }}</a>          
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <!-- /.view -->
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- /.section, /#content -->
+
+
+
+        <div class="clearfix">
+        </div>
+
+    </div>
+</div>
+{% endblock %}

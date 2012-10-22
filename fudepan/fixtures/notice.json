@@ -1,0 +1,12 @@
+[
+  {
+    "pk": 2,
+    "model": "website.notice",
+    "fields": {
+      "content": "- **Licenciatura en Ciencias de la Computaci\u00f3n** de [Franco Riberi](http://fudepan.org.ar/member/28), para entender tendencia de uso de codones de RNA de transferencia.\r\n\r\n- **Analista en Computaci\u00f3n** de [Facundo Mu\u00f1oz](http://fudepan.org.ar/member/29), para tornar el proyecto [bb-gen](http://fudepan.org.ar/projects/backbones-generator) a computaci\u00f3n distribuida utilizando [FuD](http://fudepan.org.ar/projects/fud).",
+      "due_date": "2012-08-30",
+      "created": "2012-08-24T14:43:11.712Z",
+      "title": "Iniciamos dos tesis en la Universidad Nacional de Rio Cuarto:"
+    }
+  }
+]

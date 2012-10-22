@@ -1,0 +1,43 @@
+{% extends "website/base_fudepan.html" %}
+{% load markup pagination_tags %}
+{% block content %}
+<div class="node-type-notice">
+  <div class="section">
+    <div id="content-area" class="notice">
+      <div class="panel-2col-stacked clear-block panel-display">
+        <div class="center-wrapper">
+          <div class="panel-col-first panel-2col-stacked ">
+            <div class="inside">
+              <h2 class="pane-title">Eventos y novedades:</h2>
+              {% autopaginate notices 10 %}
+              {% for notice in notices %}
+              {% include "website/notice_snippet.html" %}
+              {% endfor %}
+              {% paginate %}
+            </div>
+          </div>
+          <div class="panel-region-separator">
+          </div>
+          <div class="panels_pane panel-pane pane-views pane-notice-details">
+            <div class="pane-content">
+              <h2 class="views-field-title">{{obj.title}}</h2>
+              {{obj.content|markdown}}
+              {% for pic in obj.picture_set.all %}
+              <div class="pics">
+                <div class="views-field-field-image-fid notice-image">
+                  <span class="field-content">
+                    <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{{pic.image}}">
+                      <img class="imagecache imagecache-member_thumb" src="{{pic.image}}" height="86px" width="86px">
+                    </a>
+                  </span>
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

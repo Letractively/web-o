@@ -1,0 +1,214 @@
+{% extends "website/base_fudepan.html" %}
+
+{% block content %}
+<div class="section-quienes-colaboran">
+  <div class="clearfix with-navigation" id="main">
+    <div class="page-wrapper">
+      <div class="column" id="content">
+        <div class="section">
+          <div id="content-area">
+            <div class="panel-display panel-1col clear-block">
+              <div class="panel-panel panel-col">
+                <div>
+                  <div class="panels_pane panel-pane pane-views pane-members">
+                    <div class="pane-content">
+                      <div class="views_view view view-members view-id-members view-display-id-default view-dom-id-1">
+                        <div class="view-content">
+                          <h3>Directores</h3>
+                          {% for m in directores %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          <h3>Coordinador General</h3>
+                          {% for m in coord_general %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          <h3>Coordinadores Regionales</h3>
+                          {% for m in coord_regional %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          <h3>Profesionales / Voluntarios</h3>
+                          {% for m in profesionales %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          <h3>Investigadores y Docentes Asociados</h3>
+                          {% for m in investigadores %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          <h3>Estudiantes Universitarios</h3>
+                          {% for m in estudiantes %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                          {% if ex_colaboradores %}
+                          <h3>Ex colaboradores</h3>
+                          {% endif%}
+                          {% for m in ex_colaboradores %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+							{% if m.thesis_in_fudepan %}
+								<img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+							{% endif %}
+                            <div class="views-field-field-image-fid">
+                              <span class="field-content">
+                                <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id %}">
+                                  {% if m.image %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                  {% else %}
+                                  <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                  {% endif%}
+                                </a>
+                              </span>
+                            </div>
+
+                            <div class="views-field-title">
+                              <span class="field-content">
+                                  <a href="{% url member m.id %}"> {{ m.complete_name }} </a>
+                              </span>
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <!-- /.view -->
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.section, /#content -->
+      <div class="clearfix">
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

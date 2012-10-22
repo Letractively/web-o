@@ -1,0 +1,69 @@
+Instalación
+-------------------
+
+Se asume un sistema con:
+- [python](http://python.org) 2.6 o superior.
+- [pip](http://www.pip-installer.org/).
+- Opcional: [virtualenv](http://www.virtualenv.org/).
+
+Clonar el repositorio
+
+    $ hg clone https://code.google.com/p/web-o/ # cambiar la ruta si permisos de commiter
+    $ cd web-o
+    
+Opcional: Crear un entorno virtual.
+
+    $ virtualenv .
+    $ source ./bin/activate
+
+Instalar las dependencias
+
+    $ pip install -r requirements.txt
+    
+## Ajustar los parametros locales
+
+    $ vim fudepan/local_settings.py
+    
+Modificar los parámetros de la base de datos
+
+    #local_settings.py
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'fudepan',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+        }
+    }   
+
+> En producción local_settings.py debería tener DEBUG=False
+    
+# Migraciones:
+
+Desde la revisión 66 empezamos a usar [south](http://south.readthedocs.org/)
+Si se cuenta con una instancia, obtener esa revisión y ejecutar:
+
+    $ ./manage.py syncdb
+    
+y luego:
+    
+    $ ./manage.py migrate
+
+De acá en más `migrate` reemplaza `syncdb` en casi todos los escenarios.
+
+Ahora podemos cargar el fixture para poblar nuestra base de datos:
+
+    $ ./manage.py loaddata dump.json
+    
+De realizarse cambios en algún modelo ejecutar:
+
+    $ ./manage.py schemamigration website --auto
+    
+Reemplazar *website* con la aplicación que necesitamos migrar
+
+En este punto tenemos nuestra instancia lista para correr el servidor de 
+desarrollo:
+
+    $ ./manage.py runserver

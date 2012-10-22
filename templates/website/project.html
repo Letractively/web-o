@@ -1,0 +1,193 @@
+{% extends "website/base_fudepan.html" %}
+
+{% block content %} 
+<div class="node-type-project">
+  <div>
+    <div class="section">
+      <div id="content-area" class="projects">
+        <div class="panel-2col-stacked clear-block panel-display">
+          <div class="panel-col-top panel-panel">
+            <div class="inside">
+              <div class="panels_pane panel-pane pane-views pane-project-details">
+                <div class="pane-content">
+                  <div class="views_view view view-project-details view-id-project_details view-display-id-default view-dom-id-4">
+                    <div class="view-content">
+                      <div class="views-field-title">
+                        <span class="field-content">{{ project.name }}</span>
+                      </div>
+
+                      <div class="views-field-field-project-type-value">
+                        <span class="field-content">{{ project.type.description }}</span>
+                      </div>
+
+                      <div class="views-field-field-project-status-value">
+                        <span class="field-content">{{ project.status.description }}</span>
+                      </div>
+
+                      {% if project.url %}
+                      <div class="views-field-field-url-value">
+                        <span class="field-content">
+                          <a href="http://{{ project.url }}" target="_blank">{{ project.url }} </a>
+                        </span>
+                      </div>
+                      {% endif %}
+
+                      <div class="views-field-nothing">
+                        <span class="field-content">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.view -->
+                </div>
+              </div>
+            </div>
+          </div>    
+
+          <div class="center-wrapper">
+            <div class="panel-col-first panel-panel">
+              <div class="inside">
+                {% if project.technologies.all %}
+                <div class="panels_pane panel-pane pane-node-terms">
+                  <h2 class="pane-title">Tecnologías</h2>
+                  <div class="pane-content">
+                    <div class="item-list">
+                      <ul>
+                        {% for t in project.technologies.all %}
+                        <li>
+                          {{ t.description }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>  
+                  </div>
+                </div>
+                {% endif %}
+
+                <div class="panel-region-separator"></div>
+
+                {% if project.areas.all %}
+                <div class="panels_pane panel-pane pane-node-terms">
+                  <h2 class="pane-title">Areas</h2>
+                  <div class="pane-content">
+                    <div class="item-list">
+                      <ul>
+                        {% for a in project.areas.all %}
+                        <li>
+                          {{ a.description }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                  </div>  
+                </div>
+                {% endif %}
+
+                </div>
+                
+                
+                <div class="panel-region-separator"></div>
+
+                {% if related_publication %}
+                <div class="panels_pane panel-pane pane-node-terms">
+                  <h2 class="pane-title">Publicaciones Relacionadas</h2>
+                  <div class="pane-content">
+                    <div class="item-list">
+                      <ul>
+                        {% for p in related_publication %}
+                        <li>
+							<a href="{% url publication p.id %}">
+								{{ p.title }}
+							</a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                  </div>  
+                </div>
+                </div>
+                {% endif %}
+
+
+                <div class="panel-region-separator"></div>
+
+
+                <div class="panel-region-separator">
+                </div>
+                {% if project.authors.all %}
+                <div class="panels_pane panel-pane pane-views pane-project-members">
+                  <h2 class="pane-title">Colaboradores</h2>
+                  <div class="pane-content">
+                    <div class="views_view view view-project-members view-id-project_members view-display-id-default view-dom-id-2">
+                      <div class="view-content">
+                          {% for m in project.authors.all %}
+                          <div class="views-row views-row-1 views-row-odd views-row-first">
+                              <div class="views-field-field-image-fid">
+                                  <span class="field-content">
+                                      <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member m.id%}">
+                                          {% if m.image %}
+                                          <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{m.image.url}}">
+                                          {% else %}
+                                          <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                          {% endif%}
+                                      </a>
+                                  </span>
+                              </div>
+
+                              <div class="views-field-title">
+                                  <span class="field-content">
+                                      <a href="{% url member m.id%}"> {{ m.complete_name }}</a>
+                                  </span>
+                              </div>
+
+                          </div>
+                          {%endfor%}
+                      </div>
+                    </div>
+                    <!-- /.view -->
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="panel-col-last panel-panel">
+              <div class="inside">
+                <div class="panels_pane panel-pane pane-content-field pane-field-project-objetive">
+
+                  {% if project.objetive %}
+                  <h2 class="pane-title">Objetivo</h2>
+                  <div class="pane-content">
+                    <div class="field field-type-text field-field-project-objetive">
+                      <div class="field-items">
+                        <div class="field-item odd">
+                          {{ project.objetive|safe}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}
+
+
+                </div>
+                <div class="panel-region-separator">
+                </div>
+                <div class="panels_pane panel-pane pane-node-body">
+
+                  <h2 class="pane-title">Descripción del proyecto</h2>
+                  <div class="pane-content">
+                    {{ project.description|safe}}
+                  </div>
+                </div>
+              </div>
+              <div class="visual-clear-left"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+{% endblock %}

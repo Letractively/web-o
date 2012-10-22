@@ -1,0 +1,133 @@
+{% extends "website/base_fudepan.html" %}
+
+{% block cssextra %}
+<link href="/static/css/publication.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+<div class="column" id="content">
+    <div class="section publications">
+        <div id="content-area">
+            <div class="panel-2col-stacked clear-block panel-display">
+                <div class="center-wrapper">
+                    <div class="panel-col-first panel-panel">
+                        <div class="inside">
+                            <div class="panels_pane panel-pane pane-node-title">
+                                <h2 class="pane-title">Publicaciones desarrolladas</h2>
+                                <div class="pane-content">
+                                    {{ publication.title }}
+                                </div>
+                            </div>
+                            <div class="panel-region-separator">
+                            </div>
+                            <div class="panels_pane panel-pane pane-views pane-publication-details">
+                                <div class="pane-content">
+                                    <div class="views_view view view-publication-details view-id-publication_details view-display-id-default view-dom-id-1">
+                                        <div class="view-content">
+                                            <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+                                                <div class="views-field-field-publication-content-fid">
+                                                    <label class="views-label-field-publication-content-fid">Fecha:</label>
+                                                    <span class="field-content">{{publication.date|date}}</span>
+                                                </div>
+                                                {% if attachments %}
+                                                  <div class="views-field-field-publication-content-fid">
+                                                      <label class="views-label-field-publication-content-fid">
+                                                          Bajar contenido:
+                                                      </label>
+                                                      <ul>
+                                                      {% for a in attachments %}
+                                                        <li>
+                                                          <span class="field-content">
+                                                              <a href="{{ a.attach.url }}">
+                                                                  {% if a.title %}
+                                                                    {{ a.title }}
+                                                                  {% else %}
+                                                                    {{ a.attach.url }}
+                                                                  {% endif %}
+                                                              </a>
+                                                          </span>
+                                                         </li>
+                                                      {% endfor %}
+                                                      </ul>
+                                                  </div>
+                                                {% endif %}
+
+                                                {% if publication.project %}
+                                                <div class="views-field-field-publication-project-nid">
+                                                    <label class="views-label-field-publication-project-nid">
+                                                        Proyecto:
+                                                    </label>
+                                                    <span class="field-content">
+                                                        <a href="{% url project publication.project.normalized_name%}">
+                                                            {{ publication.project.name }}
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                                {% endif %}
+
+                                                <div class="views-field-field-publication-target-nid">
+                                                    <label class="views-label-field-publication-target-nid">
+                                                        Publicado en:
+                                                    </label>
+                                                    <span class="field-content">{{ publication.target.description }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.view -->
+                                </div>
+                            </div>
+                            <div class="panel-region-separator">
+                            </div>
+                            <div class="panels_pane panel-pane pane-node-body">
+                                <div class="pane-content">
+                                    {{ publication.objetive|safe }}
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-col-last2 panel-panel">
+                        <div class="inside">
+                            <div class="panels_pane panel-pane pane-views pane-publication-members">
+                                <h2 class="pane-title">Autores</h2>
+                                <div class="pane-content">
+                                    <div class="views_view view view-publication-members view-id-publication_members view-display-id-default view-dom-id-2">
+                                        <div class="view-content">
+                                            {% for a in publication.fudepan_authors.all %}
+                                            <div class="views-row views-row-1 views-row-odd views-row-first">
+
+                                                <div class="views-field-field-image-fid">
+                                                    <span class="field-content">
+                                                        <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{% url member a.id%}">
+
+                                                            {% if a.image %}
+                                                            <img width="86" height="86" class="imagecache imagecache-member_thumb" src="{{ a.image.url }}"/>
+                                                            {% else %}
+                                                            <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                                            {% endif%}
+                                                        </a>
+                                                    </span>
+                                                </div>
+
+                                                <div class="views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="{% url member a.id%}">{{ a.complete_name }}</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <!-- /.view -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+.section-nuestros-logros{
+}
+.section-nuestros-logros .view-logros .view-header{
+    position:relative;
+}
+.section-nuestros-logros .view-logros .view-header div.anchor{
+    position:absolute;
+    top:-45px;
+    right:30px;
+    color:#00A698;
+    font-size:14px;
+    font-weight:bold;
+}
+.section-nuestros-logros .view-logros .view-header div.anchor span.view{
+    color:#87c33d;
+}
+.section-nuestros-logros .view-logros .view-header div.anchor a{
+    color:#00A698;
+    text-decoration:none;
+}
+.section-nuestros-logros .view-logros .view-header div.anchor a:hover{
+    text-shadow:0 0 1px #008d84;
+}
+.section-nuestros-logros .view-logros .view-header div.icon{
+    background:transparent url(/static/images/block-notes.png) 0 0 no-repeat;
+    position:absolute;
+    top:-75px;
+    right:-45px;
+    width:72px;
+    height:82px;
+}
+.section-nuestros-logros .view-logros tr{
+    display:block;
+    padding-top:20px;
+}
+.section-nuestros-logros .view-logros tr td{
+    width:230px;
+    height:270px;
+    vertical-align:top;
+    padding:0;
+    border-right:3px solid #3dbab2;
+    position:relative;
+}
+.section-nuestros-logros .view-logros tr td.col-last{
+    border-right:0 none
+}
+.section-nuestros-logros .view-logros tr td .views-field-field-logro-year-value{
+    padding:10px;
+    font-size:35px;
+    color:#3dbab2;
+    border-bottom:4px solid #3dbab2;
+    position:absolute;
+    margin-top:-23px;
+    width:210px;
+    height:20px;
+}
+.section-nuestros-logros .view-logros tr td .views-field-field-logro-desc-value{
+    padding:10px;
+    margin-top:20px;
+}
+.section-nuestros-logros .view-logros tr td .views-field-field-logro-image-fid{
+    padding:10px;
+}
