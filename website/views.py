@@ -13,6 +13,7 @@ import simplejson
 class FudepanView(TemplateView):
     def get_context_data(self, **kwargs):
         context = dict()
+        context['notices'] = Notice.objects.all()[:2]
         context['current'] = getattr(self, 'current', None)
         return context
 
@@ -47,7 +48,6 @@ class HomeView(GenericInicioView):
     
     def get_context_data(self, *args, **kwargs):
         context = super(GenericInicioView, self).get_context_data(**kwargs)
-        context['notices'] = Notice.objects.all()[:2]
         return context
 
 class ContactoView(FudepanView):

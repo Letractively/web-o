@@ -53,15 +53,9 @@
 	                <div class="panels_pane panel-pane pane-block pane-block-4">
 	                  <h2 class="pane-title">Avisos y Novedades</h2>
 	                  <div class="pane-content">
-	                    <h4>
-	                      <strong>Iniciamos dos tesis en la Universidad Nacional de Rio Cuarto:</strong>
-	                    </h4>
-	                    <p>- <strong>
-	                      <em>Licenciatura en Ciencias de la Computación</em>
-	                    </strong> de <a target="_blank" href="/member/28">Franco Riberi</a>, para entender tendencia de uso de codones de RNA de transferencia.</p>
-	                    <p>- <strong>
-	                      <em>Analista en Computación</em>
-	                    </strong> de <a target="_blank" href="/member/29">Facundo Muñoz</a>, para tornar el proyecto <a target="_blank" href="/projects/backbones-generator">bb-gen</a> a computación distribuida utilizando <a target="_blank" href="/projects/fud">FuD</a>.</p>
+		              {% for notice in notices %}
+		                {% include "website/notice_snippet.html" %}
+		              {% endfor %}
 	                  </div>
 	                </div>
 	              </div>
