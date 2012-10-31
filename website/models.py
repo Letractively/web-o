@@ -1,5 +1,6 @@
 from django.db import models
 from fudepan import settings
+import os
 
 class PublicationTarget(models.Model):
     class Meta:
@@ -14,6 +15,9 @@ class PublicationAttach(models.Model):
     attach = models.FileField(upload_to='publications')
     title = models.CharField(max_length=300, null=True, blank=True)
     publication = models.ForeignKey('Publication')
+
+    def __unicode__(self):
+        return self.title or self.attach.name 
 
 class Publication(models.Model):
     class Meta:
