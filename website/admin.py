@@ -22,7 +22,7 @@ class PublicationAdmin(admin.ModelAdmin):
         instances = formset.save(commit=False)
         pub = form.save(commit=False)
         for i in instances:
-            if i.title is None or i.title == '':
+            if not i.title:
                 title = '%s - %s' % (pub.project.name, pub.title[:100])
                 i.title = title
                 i.save()
