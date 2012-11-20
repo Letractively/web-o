@@ -20,6 +20,7 @@ BASE_DIR = os.path.dirname(__file__)
 env.project_name = 'web-o'
 env.use_ssh_config = True
 env.key_filename = os.path.join(os.path.expanduser('~/.ssh'), 'fudepan.pem')
+
 def development():
     env.hosts = ["localhost"]
     env.deploy_dir = '/opt/web-o/'
@@ -31,6 +32,7 @@ def production(username="ec2-user", hosts=["fudepan.org.ar"]):
     env.user = username
     env.hosts = hosts
     env.deploy_dir = '/opt/web-o'
+    env.apache_command = 'sudo service httpd restart'
     
 def release(rev='HEAD'):
     """Creates a tarball, uploads it and decompresses it in the rigth path."""
@@ -42,7 +44,8 @@ def release(rev='HEAD'):
     tmp_file = tempfile.NamedTemporaryFile()
     local("hg archive -p . %s" %tar)
     put(tar, tar)
-    run("tar xfz %s -C %s" % (tar, env.deploy_dir))
+    sudo("tar xfz %s -C %s" % (tar, env.deploy_dir))
+    sudo("chown -R apache %s " %env.deploy_dir)
     run("rm %s" %tar)
     local("rm %s" %tar)
 
