@@ -1,5 +1,30 @@
 {% extends "website/base_fudepan.html" %}
 
+{% block jsextra %}
+    <script src="/static/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block cssextra %}
+    <link href="/static/css/tablesorter_blue.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block headextra%}
+
+<script language="javascript">
+$(document).ready(function() 
+    {      
+        $("#publicationsTable")
+          .tablesorter({ 
+             widthFixed: true, 
+             widgets: ['zebra'],
+             headers: {},
+             sortList: [[0,1]]
+          }); 
+    } 
+); 
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="section-publications">
     <div class="page-wrapper">
@@ -9,7 +34,7 @@
                 <div id="content-area">
                     <div class="views_view view view-publications view-id-publications view-display-id-page_1 view-dom-id-1">
                         <div class="view-content">
-                            <table class="views-table cols-5">
+                            <table class="views-table cols-5 tablesorter" id="publicationsTable">
                                 <thead>
                                     <tr>
                                         <th class="views-field views-field-field-publication-target-year-value active">
