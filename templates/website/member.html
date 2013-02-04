@@ -1,0 +1,194 @@
+{% extends "website/base_fudepan.html" %}
+
+{% load custom_filters %}
+
+{% block content %}
+<div class="node-type-profile">
+<div class="clearfix with-navigation" id="main">
+    <div class="page-wrapper">
+        <div class="column" id="content">
+            <div class="section">
+                <h1 class="title">
+                    {{ member.type.description }}
+                </h1>
+                <div id="content-area">
+                    <div class="panel-display panel-1col clear-block">
+                        <div class="panel-panel panel-col">
+                            <div>
+                                <div class="panels_pane panel-pane pane-node-title">
+                                    <div class="pane-content">
+                                        {{ member.complete_name }}
+                                    </div>
+                                </div>
+
+                                <div class="panel-region-separator">
+                                </div>
+                                <div class="panels_pane panel-pane pane-content-field pane-field-image">
+                                    <div class="pane-content">
+                                        {% if member.thesis_in_fudepan %}
+                                          <img title="Realizó su Proyecto Final en FuDePAN" style="position:absolute; margin-left:80px; " width="30px" height="30px" src="/static/images/graduate.png">
+                                        {% endif %}
+                                        <div class="field field-type-filefield field-field-image">
+                                            <div class="field-items">
+                                                <div class="field-item odd">
+                                                {% if member.image %}
+                                                <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="{{member.image.url}}">
+                                                {% else %}
+                                                <img width="86px" height="86px" class="imagecache imagecache-member_thumb" src="/static/images/noimage.jpg">
+                                                {% endif%}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% if member.linkedin_url %}
+                                <div class="panel-region-separator">
+                                </div>
+                                <div class="panels_pane panel-pane pane-views pane-member-details">
+                                    <div class="pane-content">
+                                        <div class="views_view view view-member-details view-id-member_details view-display-id-block_1 view-dom-id-1">
+                                            <div class="view-content">
+                                                <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+                                                    <div class="views-field-field-member-linkedin-url-value">
+                                                        <span class="field-content">
+                                                            <a href="{{ member.linkedin_url }}" target="_blank">
+                                                                <img width="160" height="33" border="0" alt="View my profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.gif">
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.view -->
+                                    </div>
+                                </div>
+                                {% endif %}
+
+
+                                <div class="panel-region-separator">
+                                </div>
+
+                                <div class="panels_pane panel-pane pane-node-body">
+
+                                {% if member.bio %}
+                                  <div class="pane-content">
+                                    <p>
+                                      {{ member.bio|safe|striptags }}
+                                    </p>
+                                  </div>
+                                {% endif %}
+                                </div>
+
+                                {% if member.university %}
+                                <div class="panel-region-separator">
+                                </div>
+                                <div class="panels_pane panel-pane pane-views pane-member-details pane-member-details-details">
+                                    <div class="pane-content">
+                                        <div class="views_view view view-member-details view-id-member_details view-display-id-default view-dom-id-2">
+                                            <div class="view-content">
+                                                <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+
+                                                    <div class="views-field-field-alma-mater-nid">
+                                                        <label class="views-label-field-alma-mater-nid">
+                                                            Alma Mater (As Student):
+                                                        </label>
+                                                        <span class="field-content">
+                                                            {{ member.university }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.view -->
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if projects %}
+                                <div class="panels_pane panel-pane pane-views pane-member-projects">
+                                    <h2 class="pane-title">Proyectos en los cuales participa</h2>
+                                    <div class="pane-content">
+                                        <div class="views_view view view-member-projects view-id-member_projects view-display-id-default view-dom-id-3">
+                                            <div class="view-content">
+                                                <table class="views-table cols-5">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="views-field views-field-field-collaboration-project-nid">
+                                                                NOMBRE        </th>
+                                                            <th class="views-field views-field-tid">
+                                                                Area        </th>
+                                                            <th class="views-field views-field-field-project-objetive-value">
+                                                                Objetivo        </th>
+                                                            <th class="views-field views-field-field-project-status-value">
+                                                                Estado        </th>
+                                                            <th class="views-field views-field-tid-1">
+                                                                Tecnologías        </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for p in projects %}
+                                                        <tr class="odd views-row-first views-row-last">
+                                                            <td class="views-field views-field-field-collaboration-project-nid">
+                                                                <h4>
+                                                                    <a href="{% url project p.normalized_name %}">{{ p.name}}</a>
+                                                                </h4>          
+                                                            </td>
+                                                            <td class="views-field views-field-tid">
+                                                                {{ p|areas }}
+                                                            </td>
+                                                            <td class="views-field views-field-field-project-objetive-value">
+                                                                {{ p.objetive|safe }}
+                                                            </td>
+                                                            <td class="views-field views-field-field-project-status-value">
+                                                                {{ p.status.description }}
+                                                            </td>
+                                                            <td class="views-field views-field-tid-1">
+                                                                {{ p|technologies }}
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div><!-- /.view -->
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if publications %}
+                                <div class="panels_pane panel-pane pane-views pane-member-publications">
+                                    <h2 class="pane-title">Publicaciones Desarrolladas</h2>
+                                    <div class="pane-content">
+                                        <div class="views_view view view-member-publications view-id-member_publications view-display-id-default view-dom-id-4">
+                                            <div class="view-content">
+                                                <div class="item-list">
+                                                    <ul>
+                                                        {% for p in publications %}
+                                                        <li class="views-row views-row-1 views-row-odd views-row-first">  
+                                                        <div class="views-field-title">
+                                                            <span class="field-content">
+                                                                <a href="{% url publication p.id %}">{{p.title}}</a>
+                                                            </span>
+                                                        </div>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>    
+                                            </div>
+                                        </div><!-- /.view -->
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.section, /#content -->
+        <div class="clearfix">
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

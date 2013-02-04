@@ -1,0 +1,14 @@
+.panel-col-first{
+  width:340px;
+  background:white;
+  color:#333;
+  top:0;
+  bottom:0;
+}
+.panel-col-last{
+  width:577px;
+  padding:20px 0 0 340px;
+  background:#333;
+  color:white;
+}
+

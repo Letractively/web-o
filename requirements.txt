@@ -1,0 +1,11 @@
+django
+pillow
+psycopg2
+simplejson
+django-openid-auth
+markdown
+south
+django-pagination
+coverage
+django-coverage
+mock>=0.8.0

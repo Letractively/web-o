@@ -1,0 +1,17 @@
+#quienes_somos-container_image{
+	float:left; 
+	display: inline;
+}
+
+#quienes_somos-image{
+	width:86px; 
+	height:86px;
+}
+
+#quienes_somos-data{
+	margin-left:10px;
+	float:left; 
+	display: inline; 
+	height:86px; 
+	width:185px;
+}

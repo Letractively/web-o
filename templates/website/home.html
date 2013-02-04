@@ -1,0 +1,419 @@
+{% extends "website/base_fudepan.html" %}
+{% load markup %}
+{% block jsextra %}
+<script src="/static/js/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block headextra %}
+<script type="text/javascript">
+$(function(){ 
+    $("#quicktabs-homepage_proyectos").tabs();
+})
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+	<div class="column" id="content">
+	  <div class="section">
+	    <div id="content-area" class="home">
+	      <div class="panel-2col-stacked  panel-display">
+	          <div class="panel-col-first panel-panel">
+	            <div class="inside">
+	              <div class="panels_pane panel-pane pane-custom pane-1">
+	                <h2 class="pane-title">Proyectos destacados</h2>
+	
+	                <div class="pane-content">
+	                  <p>/<a href="/projects">ver lista completa aquí</a>
+	                  </p>
+	                  <div class="icon">
+	                  </div>  
+	                </div>
+	              </div>
+	              <div class="panel-region-separator">
+	              </div>
+	              <div class="panel-pane pane-block pane-quicktabs-homepage-proyectos">
+	                <div>
+	                  <div id="quicktabs-homepage_proyectos">
+	                    <ul class="quicktabs_tabs quicktabs-style-nostyle">
+	                      <li>
+	                      <a href="#tab-1">Virología</a>
+	                      </li>
+	                      <li>
+	                      <a href="#tab-2">Estructura de Proteínas</a>
+	                      </li>
+	                      <li>
+	                      <a href="#tab-3">HPC</a>
+	                      </li>
+	                      <li>
+	                      <a href="#tab-4">Tesis</a>
+	                      </li>
+	                    </ul>
+	                    <div id="tab-1" class="hometag">
+	                      <div class="block block-block first region-odd odd region-count-1 count-1" id="block-block-7">
+	                        <div class="content">
+	                          <p>
+	                          <em>Proyectos enfocados en conocer mejor las propiedades, orígenes y comportamiento de los virus que contribuyan con vacunas y tratamientos a distintas enfermedades virales.</em>
+	                          </p>
+	                          <div class="views_view view view-Projects view-id-Projects view-display-id-block_1 view-dom-id-1">
+	                            <div class="view-content">
+	                              <table class="views-view-grid col-2">
+	                                <tbody>
+	                                  <tr class="row-1 row-first">
+	                                    <td class="col-1 col-first">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/ful">
+	                                            <strong>FuL</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Deducir automátiamente conclusiones lógicas y sus demostraciones procesando el conocimiento sobre virología, para planificar y verificar experimentos.</p>
+	                                          <br/>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+                                            <a href="{% url project 'visi'%}">
+	                                            <strong>ViSi</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Simulador viral de la infección por HIV teniendo en cuenta el sistema inmune.</p>
+	                                          <br/>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                  <tr class="row-2">
+	                                    <td class="col-1 col-first">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+                                            <a href="{% url project 'Junin--2ndary-Struct---Temp' %}">
+	                                            <strong>Junin, 2ndary Struct &amp; Temp</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Comprender el impacto e importancia que tiene el incremento de temperatura en la estructura secundaria del RNA del Virus y sus implicancias.</p>
+	                                          <br/>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+                                            <a href="{% url project 'phyloloc' %}">
+	                                            <strong>Phyloloc</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Determinar el origen de dispersión de patógenos considerando filogenia e información geográfica.</p>
+	                                          <br/>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                  <tr class="row-3 row-last">
+	                                    <td class="col-1 col-first">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+                                            <a href="{% url project 'vac-o' %}">
+	                                            <strong>vac-o</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Diseñar mejoras a vacunas basadas en virus vivos para reducir el riesgo de reversión a la virulencia y evitar que se produzca la enfermedad.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+                                            <a href="{% url project 'aso' %}">
+	                                            <strong>ASO</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Optimizador de tratamiento antirretroviral de pacientes HIV Positivos de manera personalizada para ayudar al profesional médico en la toma de decisiones.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                </tbody>
+	                              </table>
+	                            </div>
+	                          </div>
+	                          <!-- /.view -->
+	                        </div>
+	                        <!-- /.block -->
+	                      </div>
+	                    </div>
+	                    <div id="tab-2" class="hometag">
+	                      <div class="block block-block region-even even region-count-2 count-2" id="block-block-8">
+	                        <div class="content">
+	                          <p>
+	                          <em>El principal objetivo de esta area es predecir la estructura de las proteínas de manera eficiente y optimizando recursos. Para ello trabajamos en una base de datos de esqueletos (backbones) suficientemente completa, de manera de poder elegir como punto de partida, el "mejor" esqueleto de la proteína en estudio y luego mediante dinámica molecular encontrar la estructura real de la proteína.</em>
+	                          </p>
+	                          <div class="views_view view view-Projects view-id-Projects view-display-id-block_2 view-dom-id-2">
+	                            <div class="view-content">
+	                              <table class="views-view-grid col-2">
+	                                <tbody>
+	                                  <tr class="row-1 row-first">
+	                                    <td class="col-1 col-first">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/fdmde">
+	                                            <strong>FDMDE</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>FuDePAN's Discrete-events Molecular Dynamics Engine provee la dinámica molecular para acomodar las cadenas laterales a un esqueleto seleccionado por el backbones-selector.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/backbones-selector">
+	                                            <strong>Backbones-selector</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Dada una secuencia de aminoácidos, elegir el "mejor" esqueleto de la base de datos para el posterior agregado de las cadenas laterales.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                  <tr class="row-2 row-last">
+	                                    <td class="col-1 col-first">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/backbones-generator">
+	                                            <strong>Backbones-generator</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Generar una base de datos de esqueletos (backbones, o cadenas principales) de un tamaño dado a partir de una combinatoria de ángulos y restricciones.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/parallel-clusterer">
+	                                            <strong>Parallel Clusterer</strong>: </a>
+	                                        </span>
+	                                      </div>
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Filtrar y reducir una base de datos de esqueletos seleccionando los representantes de grupos de esqueletos estructuralmente similares; opera sobre plataforma FuD (para HPC).</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                </tbody>
+	                              </table>
+	                            </div>
+	                          </div>
+	                          <!-- /.view -->
+	                        </div>
+	                      </div>
+	                      <!-- /.block -->
+	                    </div>
+	                    <div id="tab-3" class="hometag">
+	                      <div class="block block-block region-odd odd region-count-3 count-3" id="block-block-9">
+	                        <div class="content">
+	                          <p>
+	                          <em>La bioinformática requiere procesar grandes volumenes de datos. Por eso, utilizamos tecnologías y técnicas conocidas como HPC (High Performance Computing) en proyectos de base que sirven al resto de los proyectos de la fundación.</em>
+	                          </p>
+	                          <div class="views_view view view-Projects view-id-Projects view-display-id-block_3 view-dom-id-3">
+	                            <div class="view-content">
+	                              <table class="views-view-grid col-2">
+	                                <tbody>
+	                                  <tr class="row-1 row-first">
+	                                    <td class="col-1 col-first">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/fud-recabs">
+	                                            <strong>FUD-Recabs</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Capa de abstracción para procesos recursivos sin dependencia de datos, implementada para el framework de aplicaciones distribuidas FuD.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/fud">
+	                                            <strong>FuD</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Distribuir procesamiento de aplicaciones bioinformáticas en un grupo de computadoras.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                  <tr class="row-2">
+	                                    <td class="col-1 col-first">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/fud---boinc">
+	                                            <strong>FuD / BOINC</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Implementa una capa de comunicación del framework FuD utilizando la infraestructura BOINC (Berkeley Open Infrastructure for Network Computing) para la distribución y computación voluntaria de trabajos.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/fud-combeng">
+	                                            <strong>FuD-CombEng</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>Motor combinatorio distribuido sobre framework FuD, para aplicaciones bioinformáticas que requieran optimización combinatoria con restricciones.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                  </tr>
+	                                  <tr class="row-3 row-last">
+	                                    <td class="col-1 col-first">
+	
+	                                      <div class="views-field-title">
+	                                        <span class="field-content">
+	                                          <a href="/projects/f2f">
+	                                            <strong>F2F</strong>: </a>
+	                                        </span>
+	                                      </div>
+	
+	                                      <div class="views-field-field-project-objetive-value">
+	                                        <div class="field-content">
+	                                          <p>(FuDePAN-to-FPGA) framework para portar a tecnología FPGA procesamiento masivo de datos.</p>
+	                                          <br>
+	                                        </div>
+	                                      </div>
+	                                    </td>
+	                                    <td class="col-2 col-last">
+	                                    </td>
+	                                  </tr>
+	                                </tbody>
+	                              </table>
+	                            </div>
+	                          </div>
+	                          <!-- /.view -->
+	                        </div>
+	
+	                      </div>
+	                      <!-- /.block -->
+	                    </div>
+	                    <div id="tab-4" class="hometag">
+	                      <div class="block block-block region-even even region-count-4 count-4" id="block-block-6">
+	
+	                        <div class="content">
+	                          <p>Una parte importante del trabajo de la fundación es realizada por tesistas: de grado, de título intermedio, y en breve de doctorado.</p>
+	                          <p>	&nbsp;</p>
+	                          <p>	Las tesis suelen ser de informática (tesinas de licenciatura en ciencias de la computación, proyectos finales de ingeniería), o de biología.</p>
+	                          <p>	&nbsp;</p>
+	                          <p>	Haciendo una tesis con FuDePAN, los estudiantes aprenden, se inician en un ámbito que incluye la academia y la industria, se vinculan con profesionales de ambos medios, y colaboran con una causa noble.</p>
+	                          <p>	Asimismo, como parte del proyecto de tesis, los estudiantes presentan el trabajo en un congreso relevante.</p>
+	                          <p>	&nbsp;</p>
+	                          <p>	Nuestros proyectos de tesis involucran resolver problemas difíciles, donde se debe articular conocimiento, inteligencia, y creatividad.</p>
+	                          <p>	&nbsp;</p>
+	                          <p>	Para participar, se debe pasar un examen de admisión y nivelación. El objetivo de este examen es mostrar que los conocimientos del postulante son acordes al estilo de problemas que enfrentará a lo largo de la tesis, a fin de intentar garantizar que la misma se podrá realizar en tiempo y forma.</p>
+	                          <p>	Asimismo, el examen cumple un rol nivelador ya que durante su ejecución se interactúa de forma no presencial con un instructor durante aproximadamente una semana.</p>
+	                          <p>	&nbsp;</p>
+	                          <p>	Consultar la sección Vacantes de Proyectos para ver las tesis disponibles.</p>
+	                        </div>
+	
+	                      </div>
+	                      <!-- /.block -->
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        <div class="panel-col-last panel-panel">
+	          <div class="inside">
+	            <div class="panels_pane panel-pane pane-block pane-block-5">
+	              <h2 class="pane-title">TAGs</h2>
+	              <div class="pane-content">
+	                <div class="icon">
+	                </div>
+	                <ul>
+	                  <li>
+	                  <a href="/como-colaborar">¿Por qué colaborar?</a>
+	                  </li>
+	                  <li>
+	                  <a href="/que-hacemos">¿Qué es la Bioinformática?</a>
+	                  </li>
+	                </ul>
+	              </div>
+	            </div>
+	            <div class="panel-region-separator">
+	            </div>
+	            <div class="panels_pane panel-pane pane-block pane-block-4">
+	              <h2 class="pane-title">Avisos y Novedades</h2>
+	              <div class="pane-content">
+                  {% for notice in notices %}
+                    {% include "website/notice_snippet.html" %}
+                  {% endfor %}
+                  <p>
+                  <a href="{% url notices %}">Ver todas</a>
+                  </p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      <div class="clear-block"></div>
+	    </div>
+	  </div>
+	</div>
+</div>
+{% endblock %}

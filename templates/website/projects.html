@@ -1,0 +1,98 @@
+{% extends "website/base_fudepan.html" %}
+
+{% load custom_filters %}
+
+{% block jsextra %}
+    <script src="/static/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block cssextra %}
+    <link href="/static/css/tablesorter_blue.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block headextra%}
+
+<script language="javascript">
+// add parser through the tablesorter addParser method 
+$.tablesorter.addParser({ 
+  // set a unique id 
+  id: 'apps', 
+        is: function(s) { 
+            // return false so this parser is not auto detected 
+            return false; 
+        }, 
+        format: function(s) { 
+            // format your data for normalization 
+            s = s.toLowerCase();
+            if(s.match(/research/) || s.match(/invest/)) return 1;
+            if(s.match(/framework/)) return 1;
+            if(s.match(/application/) || s.match(/aplica/)) return 2;
+            if(s.match(/libr/)) return 3;
+            return 4;
+        }, 
+        // set type, either numeric or text 
+        type: 'numeric' 
+}); 
+
+$(document).ready(function() 
+    {      
+        $("#projectsTable")
+          .tablesorter({ 
+             widthFixed: true, 
+             widgets: ['zebra'],
+             headers: {
+               2: {
+                 sorter: 'apps'
+               }
+             }/*,
+             sortList: [[2,0]] */
+          }); 
+    } 
+); 
+</script>
+{% endblock %}
+
+
+{% block content %}
+<div class="section-projects">
+<div class="column" id="content">
+  <div class="section">
+    <div id="content-area">
+        <div class="view-content">
+          <table class="views-table cols-5 tablesorter" id="projectsTable">
+            <thead>
+              <tr>
+                <th class="views-field views-field-title">Titulo</th>
+                <th class="views-field views-field-tid">Area</th>
+                <th class="views-field views-field-tid-2">Tipo</th>
+                <th class="views-field views-field-field-project-objetive-value">Objetivo</th>
+                <th class="views-field views-field-field-project-status-value">Estado</th>
+                <th class="views-field views-field-tid-1">Tecnologias</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in projects %}
+              <tr>
+                <td><a href="{% url project p.normalized_name %}">{{ p.name }}</a></td>
+                <td> {{ p|areas }}</td>
+                <td> {{ p.type.description }}</td>
+                <td>
+                  {% if p.objetive %}
+                    {{ p.objetive|safe}}
+                  {% endif %}
+                </td>
+                <td>{{ p.status.description}}</td>
+                <td> {{ p|technologies }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- /.view -->
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+

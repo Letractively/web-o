@@ -1,0 +1,21 @@
+{% load markup %}
+              <article class="node-type-notice">
+                <h4><a href="{{notice.get_absolute_url}}">{{notice.title}}</a></h4>
+                   {% if notice.notice_type == 'event' %}
+                   <span class="date">{{notice.due_date|date}}</span>
+                   {% endif %}
+
+                {% if notice.first_image %}
+                <div class="views-field-field-image-fid notice-image">
+                    <span class="field-content">
+                        <a class="imagecache imagecache-member_thumb imagecache-linked imagecache-member_thumb_linked" href="{{notice.get_absolute_url}}">
+                            <img class="imagecache imagecache-member_thumb" src="{{notice.first_image}}" height="86px" width="86px">
+                        </a>
+                    </span>
+                </div>
+                {% endif %}
+                {{notice.content|markdown|truncatewords_html:15}}
+                <a class="more" href="{{notice.get_absolute_url}}">Leer más</a> 
+                <hr />
+               </article>
+

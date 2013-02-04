@@ -1,0 +1,154 @@
+{% extends "website/base_fudepan.html" %}
+
+{% block cssextra %}
+  <link href="/static/css/quienes_somos.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block headextra %}
+    <script type="text/javascript">
+    $(document).ready(function(){ 
+        $("#photoslider").easySlider({
+          auto: true,
+          continuous: true,
+          speed:1,
+          nextId: 'photoNext',
+          prevId: 'photoPrev',
+          });
+      })
+    </script>
+    <style type="text/css">
+      #photoslider ul, #photoslider li,
+      #photoslider2 ul, #photoslider2 li{
+        margin:0;
+        padding:0;
+        list-style:none;
+      }
+
+      #photoslider2{margin-top:1em;}
+
+      #photoslider li, #photoslider2 li{ 
+        width:280px;
+        height:101px;
+        padding:0px;
+        overflow:hidden; 
+      }	
+      #photoNext, #photoPrev a{  
+        display:none;
+        position:absolute;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="clearfix with-navigation">
+  <div class="page-wrapper">
+    <div class="column" id="content"><div class="section">
+        <div id="content-area">
+          <div class="panel-display panel-3col-33 clear-block">
+            <div style="float:left; width:33%; padding-right:20px">
+              <div class="inside">
+                <div class="panels_pane panel-pane pane-node">
+                  <h2 class="pane-title">Quiénes Somos</h2>
+                  <div class="pane-content">
+                    <div class="node node-type-page build-mode-full clearfix" id="node-44">
+                      <div class="content">
+                        <p>Somos una organización no gubernamental sin fines de lucro reconocida por el Gobierno Argentino a través del Certificado de Calificación otorgado por la Agencia Nacional de Promoción Científica y Tecnológica, que realiza investigaciones en el campo de la bioinformática, uniendo la excelencia académica con las mejores prácticas de la industria de tecnologías de la información.</p>
+                        <p>Nuestros voluntarios son investigadores y profesionales especializados en informática, biología y virología, participantes en doctorados y maestrías, y estudiantes universitarios de carreras vinculadas a la informática, la medicina y la biología.</p>
+                        <p>Actualmente contamos con aproximadamente cuarenta voluntarios quienes hacen posible nuestros proyectos colaborando desde sus lugares de residencia dentro y fuera del país.</p>
+                        <p>Un aspecto central de nuestra actividad es la vinculación con el sistema científico-tecnológico nacional, para lo cual firmamos convenios con diversas universidades entre las que se cuentan la Universidad Nacional de Río Cuarto (UNRC), la Universidad Tecnológica Nacional - Facultad Regional de Córdoba (UTN-FRC) y el Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET).&nbsp;</p>
+                      </div>
+
+                    </div><!-- /.node -->
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="panel-panel panel-col">-->
+            <div style="float:left; width:30%; padding-right:20px">
+              <div class="inside"><div class="panels_pane panel-pane pane-node">
+                  <h2 class="pane-title">Por qué lo hacemos</h2>
+                  <div class="pane-content">
+                    <div class="node node-type-page build-mode-full clearfix" id="node-189">
+                      <div class="content">
+                        <p>Hay muchos temas suficientemente interesantes y desafiantes en la informática. También las aplicaciones. Ejemplos abundan.</p>
+                        <p>La clase de gente que colabora con FuDePAN es gente excepcional que se apasiona por los desafíos y autosuperación.</p>
+                        <p>Sin embargo, no se trata sólo de desafíos suficientemente intrincados. Se trata además, de que estamos comprometidos con una causa: utilizar nuestros conocimientos para poder ayudar a quienes piden ayuda y no hay actualmente forma de ayudarlos.</p>
+                        <p>FuDePAN así intenta ser un medio para que quienes quieren aportar una cuota personal a un mundo que tanto le hace falta de esta clase de personas, puedan hacerlo.</p>
+                      </div>
+
+                    </div><!-- /.node -->
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+            <div style="float:left; width:30%">
+              <div class="inside"><div class="panels_pane panel-pane pane-views pane-members">
+                  <h2 class="pane-title">¿Quienes forman FuDePAN?</h2>
+                  <div class="pane-content">
+                    <div id="photoslider">
+                      <ul>
+                        {% for m in members %}
+                          <li>
+							<div>
+							  <div style="float:left; display: inline;">							  
+							    <img id="quienes_somos-image" class="imagecache imagecache-member_thumb" src="{{ m.image.url}}"/>
+							  </div>
+							  <div id="quienes_somos-data">
+							    <p>
+								  {{m.first_name}}
+								</p>
+								<p>
+								  {% if m.type %}
+								    {{m.type.description}}
+							      {% endif %}
+								</p>
+							  </div>
+							</div>
+                          </li>                          
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-region-separator"></div><div class="panels_pane panel-pane pane-node">
+                  <h2 class="pane-title">Misión y Valores</h2>
+                  <div class="pane-content">
+                    <div class="node node-type-page build-mode-full clearfix" id="node-153">
+                      <div class="content">
+                        <p><strong>Misión</strong>&nbsp;"Desarrollar en Argentina la disciplina bionformática a un nivel de excelencia técnica y académica, aplicándola a problemas de salud relevantes, para generar un impacto significativo en las personas afectadas y en la sociedad en su conjunto."</p>
+                        <p><strong>Valores Diferenciales</strong>&nbsp;son aquellas características que, desde nuestros comienzos, nos definen y nos hacen únicos como ONG:</p>
+                        <ul>
+                          <li>
+                          <strong>Somos Innovadores</strong></li>
+                          <li>
+                          <strong>Somos Independientes</strong></li>
+                          <li>
+                          <strong>Somos Multidisciplinarios</strong></li>
+                          <li>
+                          <strong>Trabajamos con Calidad y Responsabilidad</strong></li>
+                          <li>
+                          <strong>Colaboramos en Red</strong></li>
+                          <li>
+                          <strong>Generamos Soluciones Concretas</strong></li>
+                        </ul>
+                      </div>
+                    </div><!-- /.node -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div></div><!-- /.section, /#content -->
+
+    <div class="clearfix"></div>
+
+</div></div>
+{% endblock %}
